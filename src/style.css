@@ -11,12 +11,14 @@ h1 {
 
 .score-container {
   display: flex;
+  justify-content: space-evenly;
   margin: 20px 40px;
   padding: 20px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width:40%
 }
 
 .recent-scores {

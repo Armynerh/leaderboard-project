@@ -19,12 +19,13 @@ const showAlert = (message, type) => {
   setTimeout(() => {
     alertBanner.innerHTML = '';
     alertBanner.classList.remove(type);
-  }, 3000);
+  }, 3000); // Display for 3 seconds
 };
 const refreshScores = async () => {
   try {
     if (gameId) {
       const scores = await getScores(gameId);
+      
       updateLeaderboard(scores.result);
     } else {
       showAlert('Game ID is not available', 'error');
@@ -49,20 +50,21 @@ const startGamesRender = async () => {
 
 startGamesRender();
 
+
 refreshButton.addEventListener('click', refreshScores);
 
+// Form submission event
 submitForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   if (gameId) {
     const playerName = nameInput.value;
-    const score = parseInt(scoreInput.value, 10);
+    const score = parseInt(scoreInput.value, 10); // Ensure the score is parsed as an integer
 
     try {
       await submitScore(gameId, playerName, score);
       showAlert('Score submitted successfully', 'success');
       nameInput.value = '';
       scoreInput.value = '';
-      refreshScores();
     } catch (error) {
       showAlert('Error submitting score', 'error');
     }
