@@ -67,7 +67,7 @@ export const submitScore = async (gameId, playerName, score) => {
 };
 
 export const updateLeaderboard = (scores) => {
-  leaderboardTable.innerHTML = ''; 
+  leaderboardTable.innerHTML = '';
 
   scores.forEach((score, index) => {
     const row = document.createElement('tr');
