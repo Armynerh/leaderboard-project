@@ -15,9 +15,8 @@ export const createGame = async (name) => {
     }
 
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     return data;
-    
   } catch (error) {
     console.error('Error creating game:', error);
     throw error;
@@ -72,7 +71,7 @@ export const updateLeaderboard = (scores) => {
   leaderboardTable.innerHTML = '';
 
   scores.sort((a, b) => b.score - a.score);
-  
+
   scores.forEach((score, index) => {
     const row = document.createElement('tr');
     const thClass = index % 2 === 0 ? 'th1' : 'th2';
