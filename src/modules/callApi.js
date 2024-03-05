@@ -15,6 +15,7 @@ export const createGame = async (name) => {
     }
 
     const data = await response.json();
+    console.log(data);
     return data;
   } catch (error) {
     console.error('Error creating game:', error);
@@ -69,9 +70,12 @@ export const submitScore = async (gameId, playerName, score) => {
 export const updateLeaderboard = (scores) => {
   leaderboardTable.innerHTML = '';
 
+  scores.sort((a, b) => b.score - a.score);
+
   scores.forEach((score, index) => {
     const row = document.createElement('tr');
-    row.innerHTML = `<th class="${index % 2 === 0 ? 'th1' : 'th2'}">${score.user}: ${score.score}</th>`;
+    const thClass = index % 2 === 0 ? 'th1' : 'th2';
+    row.innerHTML = `<th class="${thClass}">${score.user}: ${score.score}</th>`;
     leaderboardTable.appendChild(row);
   });
 };

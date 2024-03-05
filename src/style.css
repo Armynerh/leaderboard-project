@@ -12,13 +12,13 @@ h1 {
 .score-container {
   display: flex;
   justify-content: space-evenly;
-  margin: 20px 40px;
+  margin: 20px auto;
   padding: 20px;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 40%;
+  width: 70%;
 }
 
 .recent-scores {
@@ -40,10 +40,6 @@ h1 {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
-}
-
-#leaderboardTable th {
-  background-color: #f2f2f2;
 }
 
 #leaderboardForm {
@@ -72,4 +68,12 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #45a049;
+}
+
+#leaderboardTable tr:nth-child(even) {
+  background-color: #fff;
+}
+
+#leaderboardTable tr:nth-child(odd) {
+  background-color: #0e741a;
 }
